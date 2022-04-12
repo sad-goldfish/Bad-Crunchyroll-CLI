@@ -9,5 +9,5 @@ then
 else
   python3 "${SDIR}"/sitemap.py
 fi
-find -name "*.html" -exec xz --verbose {} +
+find -name "*.html" -exec xz -f --verbose {} +
 sh "${SDIR}"/links.sh > ~/.local/bad-crunchyroll-cli/links.txt

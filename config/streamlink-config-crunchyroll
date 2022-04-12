@@ -1,0 +1,4 @@
+#Install to ~/.config/streamlink/config.crunchyroll
+#Insert credentials
+crunchyroll-username=username
+crunchyroll-password=password

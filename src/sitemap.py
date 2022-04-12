@@ -17,6 +17,7 @@ for i in range(int(sys.argv[1]) if len(sys.argv) > 1 else 0,len(maps)):
     browser.get(maps[i])
     f.write(browser.page_source)
     f.close()
+browser.quit()
 f=open("latest.txt","w")
 f.write(str(len(maps)-1))
 f.close

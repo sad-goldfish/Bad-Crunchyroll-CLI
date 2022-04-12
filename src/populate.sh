@@ -1,13 +1,14 @@
 #!/bin/sh
 set -e
 mkdir -p ~/.local/bad-crunchyroll-cli/
+SDIR="$(dirname "$0")"
 cd ~/.local/bad-crunchyroll-cli/
 find -name "*.html.xz" -exec unxz --verbose {} +
 if [ -e ~/.local/bad-crunchyroll-cli/latest.txt ]
 then
-  python3 "$(dirname "$0")"/sitemap.py "$(cat ~/.local/bad-crunchyroll-cli/latest.txt)"
+  python3 "${SDIR}"/sitemap.py "$(cat ~/.local/bad-crunchyroll-cli/latest.txt)"
 else
-  python3 "$(dirname "$0")"/sitemap.py
+  python3 "${SDIR}"/sitemap.py
 fi
-sh "$(dirname "$0")"/links.sh
+sh "${SDIR}"/links.sh
 find -name "*.html" -exec xz --verbose {} +

@@ -1,7 +1,7 @@
 from selenium import webdriver
 import re
 
-googleURL = "https://www.crunchyroll.com/en-gb/sitemap"
+googleURL = "https://www.crunchyroll.com/sitemap"
 
 #browser = webdriver.Firefox()
 browser = webdriver.Chrome()

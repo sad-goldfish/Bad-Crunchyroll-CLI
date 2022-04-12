@@ -1,0 +1,6 @@
+#Install to ~/.config/streamlink/config
+player=mpv
+player-args= -v
+ringbuffer-size=100M
+stream-segment-threads=2
+player-passthrough=hls

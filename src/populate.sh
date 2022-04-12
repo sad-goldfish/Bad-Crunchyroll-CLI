@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 mkdir -p ~/.local/bad-crunchyroll-cli/
-SDIR="$(dirname "$0")"
+SDIR=$(readlink -f "$(dirname "$0")")
 cd ~/.local/bad-crunchyroll-cli/
 find -name "*.html.xz" -exec unxz --verbose {} +
 if [ -e ~/.local/bad-crunchyroll-cli/latest.txt ]

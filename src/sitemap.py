@@ -4,8 +4,8 @@ import sys
 
 googleURL = "https://www.crunchyroll.com/sitemap"
 
-#browser = webdriver.Firefox()
-browser = webdriver.Chrome()
+browser = webdriver.Firefox()
+#browser = webdriver.Chrome()
 browser.get(googleURL)
 content = browser.page_source
 f=open("sitemap.txt","w")

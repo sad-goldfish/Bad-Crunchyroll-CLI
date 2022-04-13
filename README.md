@@ -12,4 +12,4 @@ Run `src/populate.sh` to get a list of anime on crunchyroll. This part is espesc
 - Python
 - xz/unxz
 - Streamlink (Mpv recommended with https://github.com/bloc97/Anime4K)
-- Dmenu
+- Dmenu (Or replace with bemenu if using wayland in `src/stream.sh`)

@@ -1,23 +1,18 @@
-from selenium import webdriver
 import re
 import sys
+import cloudscraper
 
-googleURL = "https://www.crunchyroll.com/sitemap"
+sitemap_url = "https://www.crunchyroll.com/sitemap"
+scraper = cloudscraper.create_scraper()
 
-browser = webdriver.Firefox()
-#browser = webdriver.Chrome()
-browser.get(googleURL)
-content = browser.page_source
-f=open("sitemap.txt","w")
-f.write(content)
-f.close()
-maps = re.findall("<loc>([^<>]*)<\/loc>",content)
-for i in range(int(sys.argv[1]) if len(sys.argv) > 1 else 0,len(maps)):
-    f=open(f"{i}.html","w")
-    browser.get(maps[i])
-    f.write(browser.page_source)
-    f.close()
-browser.quit()
-#f=open("latest.txt","w")
-#f.write(str(len(maps)-1))
-#f.close
+content = scraper.get(sitemap_url)
+maps = re.findall("<loc>([^<>]*)<\/loc>",content.text)
+
+def getpage(i):
+    print(maps[i],file=sys.stderr)
+    tx=scraper.get(maps[i]).text
+    print(tx)
+
+r = range(int(sys.argv[1]) if len(sys.argv) > 1 else 0,len(maps))
+for i in r:
+    getpage(i)
